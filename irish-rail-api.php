@@ -17,7 +17,7 @@
 		$xmlContents = file_get_contents($baseUrl . '?' . http_build_query($queryParams));
 		$xml = simplexml_load_string($xmlContents);
 
-		$trains = str_replace("objStationData", "trains", json_encode($xml, JSON_PRETTY_PRINT));
+		$trains = str_replace("objStationData", "trains", json_encode($xml));
 
 		echo $trains;
 	}
