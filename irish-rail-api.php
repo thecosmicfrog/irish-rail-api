@@ -4,8 +4,6 @@
 	$station = $_REQUEST['station'];
 	$mins = $_REQUEST['mins'];
 
-	$trains = array();
-
 	getStationTimes($station, $mins);
 
 	function getStationTimes($station, $mins) {
