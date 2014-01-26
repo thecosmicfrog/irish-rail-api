@@ -2,17 +2,15 @@
 	header('Content-type: application/json');
 
 	$station = $_REQUEST['station'];
-	$mins = $_REQUEST['mins'];
 
-	getStationTimes($station, $mins);
+	getStationTimes($station);
 
-	function getStationTimes($station, $mins) {
+	function getStationTimes($station) {
 		$queryParams = array(
-			'StationDesc' => $station,
-			'NumMins' => $mins
+			'StationDesc' => $station
 		);
 
-		$baseUrl = "http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByNameXML_withNumMins";
+		$baseUrl = "http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByNameXML";
 
 		$xmlContents = file_get_contents($baseUrl . '?' . http_build_query($queryParams));
 		$xml = simplexml_load_string($xmlContents);
